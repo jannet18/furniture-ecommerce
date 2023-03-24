@@ -17,8 +17,8 @@ import Signup from './pages/Signup';
 function App() {
   return (
     <div>
-      <Header/>
       <Router>
+      <Header/>
         <Routes>
           <Route exact path="/" element={<Home/>}/> 
           <Route exact path="/home" element={<Home/>}/>
@@ -28,10 +28,10 @@ function App() {
           <Route exact path="/checkout" element={<Checkout/>}/>
           <Route exact path="/login" element={<Login/>}/>
           <Route exact path="/signup" element={<Signup/>}/>
-
         </Routes>
+        <Footer/>
       </Router>
-      <Footer/>
+     
     </div>
   );
 }
