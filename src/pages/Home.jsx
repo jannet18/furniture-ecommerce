@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row , Col} from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import Services from '../services/Services';
 // import heroImg from ".././assets/images/hero.jpg";
 import heroImg from ".././assets/images/hero2.jpg";
 import "./sytles/Home.css";
@@ -30,8 +31,8 @@ const Home = () => {
           </Col>
           </Row> 
         </Container>
+        <Services/>
       </section>
-      Home
     </div>
   )
 }
