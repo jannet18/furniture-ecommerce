@@ -1,5 +1,6 @@
 import React from 'react';
 import './Header.css';
+import { motion } from 'framer-motion';
 import logo from '/home/janet/development/code/react-firebase/furniture-ecommerce/src/assets/logo1.jpg';
 import { Container, Row } from "reactstrap";
 import { Link } from 'react-router-dom';
@@ -13,7 +14,7 @@ const Header = () => {
         <Row>
           <div className="nav__wrapper">
             <div className="logo">
-            <img src={logo} alt="logo" width="100"/>
+            <img src={logo} alt="logo" />
               <div>
                 <h1>FCI FURNITURE</h1>
                 <p>Since 1998</p>
@@ -34,9 +35,9 @@ const Header = () => {
               </ul>
             </div>
             <div className="nav__icons">
-              <span className="fav__icon"><i className="bi bi-heart"></i></span>
-              <span className="cart__icon"><i className="bi bi-cart3"></i></span>
-              <span><i className="bi bi-person"></i></span>
+              <span className="fav__icon"><span className='badge'>1</span><i className="bi bi-heart" font-size=""></i></span>
+              <span className="cart__icon"><span className='badge'>1</span><i className="bi bi-cart3" font-size=""></i></span>
+              <span><motion.i whileTap={{ scale:1.2}} className="bi bi-person" font-size=""></motion.i></span>
             </div>
             <div className="mobile__menu">
               <span><i className="bi bi-list"></i></span>
