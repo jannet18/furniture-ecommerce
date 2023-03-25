@@ -6,6 +6,7 @@ import Services from '../services/Services';
 // import heroImg from ".././assets/images/hero.jpg";
 import heroImg from ".././assets/images/hero2.jpg";
 import "./sytles/Home.css";
+import ProductsList from '../components/UI/ProductsList';
 
 const Home = () => {
 
@@ -32,6 +33,17 @@ const Home = () => {
           </Row> 
         </Container>
         <Services/>
+
+        <section className="trending__products">
+          <Container>
+            <Row>
+              <Col lg="12" className='text-center'>
+               <h2 className='section__title'>Trending Products</h2>
+              </Col>
+              <ProductsList/>
+            </Row>
+          </Container>
+        </section>
       </section>
     </div>
   )
