@@ -34,7 +34,7 @@ const Header = () => {
               </ul>
             </div>
             <div className="nav__icons">
-              <span className="fav__icon"><i className="bi bi-suit-heart"></i></span>
+              <span className="fav__icon"><i className="bi bi-heart"></i></span>
               <span className="cart__icon"><i className="bi bi-cart3"></i></span>
               <span><i className="bi bi-person"></i></span>
             </div>
