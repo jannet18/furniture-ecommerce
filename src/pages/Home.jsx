@@ -6,18 +6,25 @@ import Services from "../services/Services";
 // import heroImg from ".././assets/images/hero.jpg";
 import heroImg from ".././assets/images/hero2.jpg";
 import "./sytles/Home.css";
-import products from '../assets/data/products'
+import products from "../assets/data/products";
 import ProductsList from "../components/UI/ProductsList";
 
 const Home = () => {
-  const [data, setData] = useState(products);
+  const [trendingProducts, setTrendingProducts] = useState([]);
+  const [bestSalesProducts, setBestSalesProducts] = useState([]);
   const year = new Date().getFullYear();
 
   useEffect(() => {
-    const filteredProducts = products.filter(item => item.category === 'chair' )
-    setData(filteredProducts);
+    const filteredTrendingProducts = products.filter(
+      (item) => item.category === "chair"
+    );
+    const filteredBestSalesProducts = products.filter(
+      (item) => item.category === "sofa"
+    );
 
-  }, [])
+    setBestSalesProducts(filteredBestSalesProducts);
+    setTrendingProducts(filteredTrendingProducts);
+  }, []);
   return (
     <div>
       <section className="hero__section">
@@ -52,7 +59,25 @@ const Home = () => {
               <Col lg="12" className="text-center">
                 <h2 className="section__title">Trending Products</h2>
               </Col>
-              <ProductsList />
+              <ProductsList data={trendingProducts} />
+            </Row>
+          </Container>
+        </section>
+
+        <section className="best__sales">
+          <Container>
+            <Row>
+              <Col lg="12" className="text-center">
+                <h2 className="section__title">Best Sales</h2>
+              </Col>
+              <ProductsList data={bestSalesProducts} />
+            </Row>
+          </Container>
+        </section>
+        <section className="timer__count">
+          <Container>
+            <Row>
+              <Col lg='6' md='6'></Col>
             </Row>
           </Container>
         </section>

@@ -44,7 +44,7 @@ const products = [
   
     {
       id: "03",
-      productName: "Amazon Brand Modern Sofa",
+      productName: "Modern Sofa",
       imgUrl: "https://i.pinimg.com/564x/05/f7/dd/05f7dd143f2fd063bccc0dcc4ebc5f6a.jpg",
       category: "sofa",
       price: 173,
@@ -203,7 +203,7 @@ const products = [
       id: "08",
       productName: "High-Back Office Chair Leather Adjustable Swivel Desk Chair with Arms, Cream",
       imgUrl: "https://i.pinimg.com/564x/77/49/6f/77496f48d71ec1f0ded95cb35b7db519.jpg",
-      category: "chair",
+      category: "chair l",
       price: 89,
       shortDesc:
       "This modern adjustable swivel office chair is perfect for a home office .",
@@ -249,7 +249,7 @@ const products = [
       id: "10",
       productName: "Softscape Armchair",
       imgUrl: "https://i.pinimg.com/564x/b4/94/06/b494065dbce3a027e64da9b0be1471c7.jpg",
-      category: "Chair",
+      category: "chair",
       price: 799,
       shortDesc:
       "In corporate or residential settings, the Softscape armchair available.",
@@ -293,7 +293,7 @@ const products = [
       id: "11",
       productName: "Patio",
       imgUrl: "https://i.pinimg.com/564x/6a/50/bd/6a50bd4763fbd7d49a0aa4250ccffd9a.jpg",
-      category: "Pation Furniture",
+      category: "patio",
       price: 799,
       shortDesc:
       " Modern outdoor furniture and decor",
@@ -316,7 +316,7 @@ const products = [
       id: "12",
       productName: "Twiga - Atmosphera",
       imgUrl: "https://i.pinimg.com/564x/ec/17/a1/ec17a1a67b65235834a49bf4fa8aaa05.jpg",
-      category: "Outdoor Furniture",
+      category: "outdoor",
       price: 599,
       shortDesc:
       "Aluminium frames epoxy painted for outdoors. ",
@@ -339,7 +339,7 @@ const products = [
       id: "13",
       productName: "Refined Exclusive Marina Chaise Lounge",
       imgUrl: "https://i.pinimg.com/564x/38/20/68/382068680bb0c5f06714f783abd92355.jpg",
-      category: "Chase Lounge",
+      category: "chase",
       price: 799,
       shortDesc:
       "This stylish chaise lounge belongs to the exclusive Italian Marina outdoor furniture collection.",
@@ -362,7 +362,7 @@ const products = [
       id: "14",
       productName: "Source Modern Leisure Patio Synthetic Wicker",
       imgUrl: "https://i.pinimg.com/564x/7a/14/4d/7a144d530807c468ba270e1e977e9b13.jpg",
-      category: "Outdoor Furniture",
+      category: "outdoor",
       price: 899,
       shortDesc:
       "Modern Leisure Patio Synthetic Wicker Furniture Outdoor Rattan Lounge Sun Bed",
@@ -385,7 +385,7 @@ const products = [
       id: "15",
       productName: "Dot & Bo-Furniture ",
       imgUrl: "https://i.pinimg.com/564x/62/af/de/62afded75efbc507f125856955b05949.jpg",
-      category: "Outdoor",
+      category: "outdoor",
       price: 699,
       shortDesc:
       "Shop modern furniture and home décor for every room in your home, ranging in style from mid-century to industrial to bohemian and more.",
@@ -408,7 +408,7 @@ const products = [
       id: "16",
       productName: "Outdoor Furniture",
       imgUrl: "https://i.pinimg.com/564x/aa/67/7b/aa677bccb664974b45329116ec4ee471.jpg",
-      category: "Chair",
+      category: "chair",
       price: 299,
       shortDesc:
       "These furniture finds are totally fabulous—and totally weatherproof.",
@@ -431,7 +431,7 @@ const products = [
       id: "17",
       productName: "Effy Fabric Sofa",
       imgUrl: "https://i.pinimg.com/564x/28/5d/29/285d2986e2c868d8b442af17384cf1c3.jpg",
-      category: "Sofa",
+      category: "sofa",
       price: 299,
       shortDesc:
       "Ground your living space with transitional style through this handsome chair.",
@@ -454,7 +454,7 @@ const products = [
       id: "18",
       productName: "Stylish Vincent Sheppard chair",
       imgUrl: "https://i.pinimg.com/564x/3a/cb/ef/3acbef179a84b1c951022bd01f9efde0.jpg",
-      category: "watch",
+      category: "chair",
       price: 299,
       shortDesc:
       "Modern, elegant and comfortable outdoor lounge chair in outdoor weave. The Frida lounge chair is a real eye-catcher for any terrace.",
@@ -477,7 +477,7 @@ const products = [
       id: "19",
       productName: "Edenbrook Jensen Upholstered Sofa with Scooped Arms",
       imgUrl: "https://i.pinimg.com/564x/a8/ce/14/a8ce14bcd2d4f21e703ade69daa85b04.jpg",
-      category: "Couch",
+      category: "sofa",
       price: 399,
       shortDesc:
       "Seats in Three -Transitional Style -Multiple Colors, Green Velvet",
@@ -500,7 +500,7 @@ const products = [
       id: "20",
       productName: "Ember Interiors Pin Tufted Transitional Futon, Blue Velvet",
       imgUrl: "https://i.pinimg.com/564x/89/c6/90/89c6903b9869a6b96cf6137c1298ea06.jpg",
-      category: "Couch",
+      category: "sofa",
       price: 199,
       shortDesc:
       "Nothing says class, sophistication and smooth comfort quite like velvet, and the Ember Interiors Pin Tufted Transitional Futon is the ultimate in style! The design itself is stunning. It combines thick cushioning with tufted velvet, sleek arms, tapered wooden legs, and a vintage look that takes you back to the bold and luxurious days of the 1950s.",
@@ -523,7 +523,7 @@ const products = [
       id: "22",
       productName: "Wahson PU Leather Armchair",
       imgUrl: "https://i.pinimg.com/564x/a8/f4/03/a8f4036a84e41b0b5be1877b178ca608.jpg",
-      category: "ArmChair",
+      category: "chair",
       price: 199,
       shortDesc:
       "Modern Occasional Accent Chair Single Sofa Chair with Black Metal Frame, Reading Chair for Living Room/Office.",
