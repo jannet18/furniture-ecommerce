@@ -3,11 +3,12 @@ import ProductCard from './ProductCard';
 
 const ProductsList = () => {
   return (
-    <div>
+    <>
         <ProductCard/>
         <ProductCard/>
         <ProductCard/>
-    </div>
+        <ProductCard/>
+    </>
   )
 }
 

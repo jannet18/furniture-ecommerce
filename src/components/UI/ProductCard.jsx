@@ -21,7 +21,7 @@ const ProductCard = () => {
         <div className="product__card-bottom d-flex align-items-center justify-content-between p-2">
           <span className="price">$399</span>
           <motion.span whileTap={{ scale: 1.2 }}>
-            <i class="bi bi-plus"></i>
+            <i className="bi bi-plus"></i>
           </motion.span>
         </div>
       </div>
