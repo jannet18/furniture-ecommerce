@@ -60,7 +60,7 @@ const Home = () => {
                 </motion.button>
               </div>
             </Col>
-            <Col lg="6" md="">
+            <Col lg="6" md="12" >
               <div className="hero__img">
                 <img src={heroImg} alt="heroImg" />
               </div>
@@ -94,7 +94,7 @@ const Home = () => {
         <section className="timer__count">
           <Container>
             <Row>
-              <Col lg='6' md='6'>
+              <Col lg='6' md='12' className="count__down-col">
                 <div className="clock__top-content">
                   <h4 className="text-white fs-6 mb-2">Limited Offers</h4>
                   <h3 className="text-white fs-6 mb-3">Quality Guarenteed</h3>
@@ -102,7 +102,7 @@ const Home = () => {
                 <Clock/>
                 <motion.button whileTap={{ scale: 1.2 }} className="buy__btn store__btn"><Link to='/shop'>Visit Store</Link></motion.button>
               </Col>
-              <Col lg='6' md='6' className="text-end">
+              <Col lg='6' md='12' className="text-end timer__img">
               <img src={timerImg} alt="" />
               </Col>
             </Row>

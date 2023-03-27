@@ -19,7 +19,7 @@ const ProductCard = ({item}) => {
         </div>
         
         <div className="product__card-bottom d-flex align-items-center justify-content-between p-2">
-          <span className="price">{item.price}</span>
+          <span className="price">${item.price}</span>
           <motion.span whileTap={{ scale: 1.2 }}>
             <motion.i whileHover={{ scale: 0.8 }} className="bi bi-plus"></motion.i>
           </motion.span>

@@ -67,3 +67,39 @@ section {
   color: var(--primary-color);
   font-weight: 600;
 }
+@media only screen and (max-width: 768px) {
+ .hero__img {
+  width: 100%;
+  height: 80%;
+  margin-top: 2rem;
+ }
+ .timer__img {
+  display: none;
+ }
+ .hero__content h2 {
+  font-size: 1.6rem;
+}
+.hero__content p {
+  font-size: 0.9rem;
+}
+.buy__btn{
+  font-size: 0.9rem;
+}
+.section__title {
+  font-size: 1.4rem;
+}
+.clock__top-content {
+  text-align: center;
+}
+
+.clock__top-content h4 {
+  font-size: 0.9rem !important;
+}
+.clock__top-content h3 {
+  font-size: 1rem !important;
+}
+.count__down-col {
+  text-align: center;
+  display: inline-block;
+}
+}
