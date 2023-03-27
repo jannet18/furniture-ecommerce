@@ -62,7 +62,7 @@ const Header = () => {
               </span>
               <span className="cart__icon">
                 <span className="badge">1</span>
-                <i className="bi bi-cart3" font-size=""></i>
+                <i className="bi bi-cart3"></i>
               </span>
               <span>
                 <motion.i
