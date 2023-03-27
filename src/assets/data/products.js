@@ -88,7 +88,7 @@ const products = [
     },
     {
       id: "04",
-      productName: "Fllufy Sheep Sofa",
+      productName: "Flufy Sheep Sofa",
       imgUrl: "https://i.pinimg.com/564x/35/30/9e/35309ee9d13e43d3a9f848c32552a639.jpg",
       category: "sofa",
       price: 163,
@@ -202,8 +202,8 @@ const products = [
     {
       id: "08",
       productName: "High-Back Office Chair Leather Adjustable Swivel Desk Chair with Arms, Cream",
-      imgUrl: "https://i.pinimg.com/564x/77/49/6f/77496f48d71ec1f0ded95cb35b7db519.jpg",
-      category: "chair l",
+      imgUrl: "https://i.pinimg.com/236x/fc/61/5a/fc615a5aad54a35086323598eef61735.jpg",
+      category: "chaise",
       price: 89,
       shortDesc:
       "This modern adjustable swivel office chair is perfect for a home office .",
@@ -293,7 +293,7 @@ const products = [
       id: "11",
       productName: "Patio",
       imgUrl: "https://i.pinimg.com/564x/6a/50/bd/6a50bd4763fbd7d49a0aa4250ccffd9a.jpg",
-      category: "patio",
+      category: "outdoor",
       price: 799,
       shortDesc:
       " Modern outdoor furniture and decor",
@@ -339,7 +339,7 @@ const products = [
       id: "13",
       productName: "Refined Exclusive Marina Chaise Lounge",
       imgUrl: "https://i.pinimg.com/564x/38/20/68/382068680bb0c5f06714f783abd92355.jpg",
-      category: "chase",
+      category: "chaise",
       price: 799,
       shortDesc:
       "This stylish chaise lounge belongs to the exclusive Italian Marina outdoor furniture collection.",
@@ -384,7 +384,7 @@ const products = [
     {
       id: "15",
       productName: "Dot & Bo-Furniture ",
-      imgUrl: "https://i.pinimg.com/564x/62/af/de/62afded75efbc507f125856955b05949.jpg",
+      imgUrl: "https://i.pinimg.com/236x/7d/27/cb/7d27cb70359e996c48aac78c5ff274ea.jpg",
       category: "outdoor",
       price: 699,
       shortDesc:
@@ -529,6 +529,52 @@ const products = [
       "Modern Occasional Accent Chair Single Sofa Chair with Black Metal Frame, Reading Chair for Living Room/Office.",
       description:
       "Comes with soft padding under all four feet to make it easy to move around and ensure your floors are never scuffed or scratched.",
+      reviews: [
+        {
+          rating: 4.8,
+          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        },
+        {
+          rating: 4.9,
+          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        },
+      ],
+      avgRating: 4.8,
+    },
+
+    {
+      id: "23",
+      productName: "Modern Chaise Lounge Chair",
+      imgUrl: "https://i.pinimg.com/564x/53/d7/66/53d7664cf3f57d6047214d56749ae0ba.jpg",
+      category: "chaise",
+      price: 799,
+      shortDesc:
+      "This stylish chaise lounge belongs to the exclusive Italian Marina outdoor furniture collection.",
+      description:
+      "It comes with a comfortable seat cushion and two decorative cushions, all covered in fabric. The high-end metal structure is available .",
+      reviews: [
+        {
+          rating: 4.8,
+          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        },
+        {
+          rating: 4.9,
+          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        },
+      ],
+      avgRating: 4.8,
+    },
+  
+    {
+      id: "24",
+      productName: "Upholstered Chaise Lounge",
+      imgUrl: "https://i.pinimg.com/564x/78/94/bb/7894bb305c16d6702fc7c70d81adda6a.jpg",
+      category: "chaise",
+      price: 899,
+      shortDesc:
+      "Modern Leisure Patio Synthetic Wicker Furniture Outdoor Rattan Lounge Sun Bed",
+      description:
+      "Outdoor sun loungers. Looking for a pool to match your Kobo lounger? Start making those long-overdue travel plans. Browse through our inspirational pages and discover just where in the world you can lay down in a Manutti classic.",
       reviews: [
         {
           rating: 4.8,

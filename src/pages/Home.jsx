@@ -6,12 +6,18 @@ import Services from "../services/Services";
 // import heroImg from ".././assets/images/hero.jpg";
 import heroImg from ".././assets/images/hero2.jpg";
 import "./sytles/Home.css";
+import timerImg from '../assets/images/timer2.jpg';
+import Clock from "../components/UI/Clock";
 import products from "../assets/data/products";
 import ProductsList from "../components/UI/ProductsList";
 
 const Home = () => {
   const [trendingProducts, setTrendingProducts] = useState([]);
   const [bestSalesProducts, setBestSalesProducts] = useState([]);
+  const [mobileProducts, setMobileProducts] = useState([]);
+  const [outdoorProducts, setOutdoorProducts] = useState([]);
+
+
   const year = new Date().getFullYear();
 
   useEffect(() => {
@@ -22,8 +28,18 @@ const Home = () => {
       (item) => item.category === "sofa"
     );
 
+    const filteredMobileProducts = products.filter(
+      (item) => item.category === "chaise"
+    );
+    const filteredOutdoorProducts = products.filter(
+      (item) => item.category === "outdoor"
+    );
+
     setBestSalesProducts(filteredBestSalesProducts);
     setTrendingProducts(filteredTrendingProducts);
+    setMobileProducts(filteredMobileProducts);
+    setOutdoorProducts(filteredOutdoorProducts);
+
   }, []);
   return (
     <div>
@@ -51,6 +67,7 @@ const Home = () => {
             </Col>
           </Row>
         </Container>
+        </section>
         <Services />
 
         <section className="trending__products">
@@ -77,11 +94,44 @@ const Home = () => {
         <section className="timer__count">
           <Container>
             <Row>
-              <Col lg='6' md='6'></Col>
+              <Col lg='6' md='6'>
+                <div className="clock__top-content">
+                  <h4 className="text-white fs-6 mb-2">Limited Offers</h4>
+                  <h3 className="text-white fs-6 mb-3">Quality Guarenteed</h3>
+                </div>
+                <Clock/>
+                <motion.button whileTap={{ scale: 1.2 }} className="buy__btn store__btn"><Link to='/shop'>Visit Store</Link></motion.button>
+              </Col>
+              <Col lg='6' md='6' className="text-end">
+              <img src={timerImg} alt="" />
+              </Col>
             </Row>
           </Container>
         </section>
-      </section>
+        <section className="new__arrivals">
+          <Container>
+            <Row>
+              <Col lg="12" className="text-center">
+                <h2 className="section__title">New Arrivals</h2>
+             
+              </Col>
+              <ProductsList data={mobileProducts} />
+              <ProductsList data={outdoorProducts} />
+            </Row>
+          </Container>
+        </section>
+        <section className="section__title">
+        <Container>
+            <Row>
+              <Col lg="12" className="text-center">
+                <h2 className="section__title">Popular Products</h2>
+             
+              </Col>
+              <ProductsList data={bestSalesProducts} />
+            </Row>
+          </Container>
+
+        </section>
     </div>
   );
 };
