@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import { useSelector } from "react-redux";
 import "./Header.css";
 import { motion } from "framer-motion";
 import logo from "../../assets/images/logo1.jpg";
@@ -8,6 +9,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   const headerRef = useRef(null);
   const menuRef = useRef(null);
+  const totalQuantity = useSelector(state => state.cart.totalQuantity)
 
 
   const stickyHeader = () => {
@@ -58,17 +60,16 @@ const Header = () => {
             <div className="nav__icons">
               <span className="fav__icon">
                 <span className="badge">1</span>
-                <i className="bi bi-heart" font-size=""></i>
+                <i className="bi bi-heart" ></i>
               </span>
               <span className="cart__icon">
-                <span className="badge">1</span>
+                <span className="badge">{totalQuantity}</span>
                 <i className="bi bi-cart3"></i>
               </span>
               <span>
                 <motion.i
                   whileTap={{ scale: 1.2 }}
                   className="bi bi-person"
-                  font-size=""
                 ></motion.i>
               </span>
               <div className="mobile__menu">

@@ -6,6 +6,7 @@ import "../../pages/sytles/productCard.css";
 import { Col } from "reactstrap";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../redux/slices/cartSlice";
+import { toast } from "react-toastify";
 
 const ProductCard = ({item}) => {
   const dispatch = useDispatch();
@@ -18,7 +19,8 @@ const ProductCard = ({item}) => {
       image: item.imgUrl
     }))
 
-    alert('Item added')
+    toast.success('Item added successfully')
+    // alert('Item added')
   }
 
   return (
