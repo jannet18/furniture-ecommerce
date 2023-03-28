@@ -6,7 +6,7 @@ import ProductsLists from "../components/UI/ProductsList";
 
 const Shop = () => {
 
-  const [productsData, setProductsData] = useState([products]);
+  const [productsData, setProductsData] = useState(products);
 
   const handleFilter = (e) => {
     const filterValue = e.target.value;
@@ -42,6 +42,14 @@ const Shop = () => {
       setProductsData(filterProducts)
     }
   }
+
+  const handleSearch = (e) => {
+    const searchTerm = e.target.value;
+
+    const searchedProducts = products.filter((item) => item.productName.toString().toLowerCase().includes(searchTerm.toLowerCase()))
+
+    setProductsData(searchedProducts)
+  }
   return (
     <>
       <section title="Shop">
@@ -53,9 +61,9 @@ const Shop = () => {
           <Row>
             <Col lg="3" md="3">
             <div className="filter__widget">
-                <select >
+                <select onChange={handleFilter} >
                   <option>Filter By Category</option>
-                  <option value="chairs">Chairs</option>
+                  <option value="chair">Chair</option>
                   <option value="sofa">Sofa</option>
                   <option value="chaise">Chaise</option>
                   <option value="outdoor">Outdoor</option>
@@ -66,7 +74,7 @@ const Shop = () => {
             <div className="filter__widget">
                 <select >
                   <option>Sort By</option>
-                  <option value="ascending">AScending</option>
+                  <option value="ascending">Ascending</option>
                   <option value="descending">Descending</option>
           
                 </select>
@@ -74,7 +82,7 @@ const Shop = () => {
             </Col>
             <Col lg="6" md="6">
               <div className="search__box">
-                <input type="text" placeholder="Search..."/>
+                <input type="text" placeholder="Search..." onChange={handleSearch}/>
                 <span><i className="bi bi-search"></i></span>
               </div>
             </Col>
@@ -86,7 +94,7 @@ const Shop = () => {
           <Row>
             {
               productsData.length === 0 ?(
-                <h1>Not available</h1>
+                <h1>Not available!</h1>
               ) : (
                 <ProductsLists data={productsData} />
               )
