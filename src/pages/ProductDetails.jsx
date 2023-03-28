@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "reactstrap";
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import products from ".././assets/data/products";
 import MainSection from "../components/UI/MainSection";
 import ".././pages/sytles/ProductDetails.css";
 import { motion } from "framer-motion";
 
-
-const ProductDetails = ({id}) => {
+const ProductDetails = () => {
   const [tab, setTab] = useState("desc");
   const [rating, setRating] = useState(null);
-  // const { id } = useParams();
-  const product = products.find(item => item.id === id);
+  const { id } = useParams();
+  const product = products.find((item) => item.id === id);
 
   const {
     imgUrl,
@@ -20,16 +19,21 @@ const ProductDetails = ({id}) => {
     avgRating,
     reviews,
     shortDesc,
-    description,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+    description,
   } = product || {};
+
+  // console.log(imgUrl)
   return (
     <section>
-      <MainSection />
+      <div>
+        <MainSection />
+      </div>
+
       <section>
         <Container>
           <Row>
             <Col lg="6">
-              <img src={imgUrl} alt="" />
+              <img src={imgUrl} alt="" className="pt-0"/>
             </Col>
             <Col lg="6">
               <div className="product__details">
@@ -54,12 +58,14 @@ const ProductDetails = ({id}) => {
                   </span>
                 </div>
                 <p>
-                  <span>{avgRating}</span>ratings
+                  <span>{avgRating}</span> rating
                 </p>
               </div>
               <span className="product__price">${price}</span>
               <p className="mt-3">{shortDesc}</p>
-              <motion.button whileTap={{ scale: 1.2 }}className="buy__button">Add to Cart</motion.button>
+              <motion.button whileTap={{ scale: 1.2 }} className="buy__btn">
+                Add to Cart
+              </motion.button>
             </Col>
           </Row>
         </Container>
@@ -78,9 +84,9 @@ const ProductDetails = ({id}) => {
                 <h5
                   className={`${tab === "rev" ? "active__tab" : ""}`}
                   onClick={() => setTab("rev")}
-                >
-                  Reviews({reviews})
+                >Reviews
                 </h5>
+                <span>({reviews.length})</span>
               </div>
               {tab === "desc" ? (
                 <div className="tab__content mt-5">
@@ -90,13 +96,17 @@ const ProductDetails = ({id}) => {
                 <div className="product__review mt-5">
                   <div className="review__wrapper">
                     <ul>
-                      {reviews.map((item, id) => (
-                        <li key={id} className="mb-4">
-                          <h6>Jane Doe</h6>
-                          <span>{item.rating}(average rating)</span>
-                          <p>{item.text}</p>
-                        </li>
-                      ))}
+                      {
+                        product.reviews.map((item, id) => {
+                          return(
+                          <li key={id} className="mb-4">
+                            <h6></h6>
+                            <span>{item.rating} rating</span>
+                            <p>{item.text}</p>
+                          </li>
+                          )}
+                         ) }
+                      
                     </ul>
                     <div className="review__form">
                       <h4>Share your experience</h4>

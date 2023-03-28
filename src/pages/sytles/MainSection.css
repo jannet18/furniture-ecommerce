@@ -2,8 +2,8 @@
     background: linear-gradient(rgba(0, 0, 0, 0.562), rgba(0, 0, 0, 0.562)), url("../../assets/images/mainsection.jpg") no-repeat center center;
     background-size: cover;
     padding: 100px 0px;
-    /* height: 300px; */
-    margin-bottom: -3.8rem;
+    height: 300px;
+    margin-bottom: -3.7rem;
     display: flex;
     align-items: center;
     justify-content: center;
