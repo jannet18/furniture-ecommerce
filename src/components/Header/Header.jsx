@@ -7,7 +7,7 @@ import { Container, Row } from "reactstrap";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  const headerRef = useRef(null);
+  const headerRef = useRef();
   const menuRef = useRef(null);
   const totalQuantity = useSelector(state => state.cart.totalQuantity)
 
