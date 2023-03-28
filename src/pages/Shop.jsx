@@ -94,7 +94,7 @@ const Shop = () => {
           <Row>
             {
               productsData.length === 0 ?(
-                <h1>Not available!</h1>
+                <h1 className="text-center fs-4">Not available!</h1>
               ) : (
                 <ProductsLists data={productsData} />
               )
