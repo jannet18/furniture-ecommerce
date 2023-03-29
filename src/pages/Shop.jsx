@@ -80,7 +80,7 @@ const Shop = () => {
                 </select>
               </div>
             </Col>
-            <Col lg="6" md="6">
+            <Col lg="6" md="6" className="text-end">
               <div className="search__box">
                 <input type="text" placeholder="Search..." onChange={handleSearch}/>
               <i className="bi bi-search"></i>
