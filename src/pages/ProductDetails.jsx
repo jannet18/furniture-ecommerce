@@ -147,7 +147,7 @@ const ProductDetails = () => {
                     <ul>
                       {product.reviews.map(product.item, (id) => (
                         <li key={product.item.id} className="mb-4">
-                          <h6></h6>
+                          <h6>Jane Doe</h6>
                           <span>{product.item.rating} rating</span>
                           <p>{product.item.text}</p>
                         </li>

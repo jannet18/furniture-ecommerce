@@ -4,32 +4,36 @@ import "./Header.css";
 import { motion } from "framer-motion";
 import logo from "../../assets/images/logo1.jpg";
 import { Container, Row } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const headerRef = useRef(null);
   const menuRef = useRef(null);
-  const totalQuantity = useSelector(state => state.cart.totalQuantity)
-
+  const navigate = useNavigate();
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 
   const stickyHeader = () => {
     window.addEventListener("scroll", () => {
-      if(document.body.scrollTop > 80 ||
-        document.documentElement.scrollTop > 80) 
-        {
-          headerRef.current.classList.add("stick__header");
-        } else {
-          headerRef.current.classList.remove("sticky__header");
-        }
-    })
-  }
+      if (
+        document.body.scrollTop > 80 ||
+        document.documentElement.scrollTop > 80
+      ) {
+        headerRef.current.classList.add("stick__header");
+      } else {
+        headerRef.current.classList.remove("sticky__header");
+      }
+    });
+  };
 
   useEffect(() => {
-    stickyHeader()
+    stickyHeader();
     return () => window.removeEventListener("scroll", stickyHeader);
-  })
+  });
 
-  const menuToggle = () => menuRef.current.classList.toggle('active__menu')
+  const menuToggle = () => menuRef.current.classList.toggle("active__menu");
+  const navigateToCart = () => {
+    navigate('/cart')
+  };
   return (
     <header className="header" ref={headerRef}>
       <Container>
@@ -60,10 +64,11 @@ const Header = () => {
             <div className="nav__icons">
               <span className="fav__icon">
                 <span className="badge">1</span>
-                <i className="bi bi-heart" ></i>
+                <i className="bi bi-heart"></i>
               </span>
-              <span className="cart__icon">
+              <span className="cart__icon" onClick={navigateToCart}>
                 <span className="badge">{totalQuantity}</span>
+
                 <i className="bi bi-cart3"></i>
               </span>
               <span>
@@ -73,12 +78,11 @@ const Header = () => {
                 ></motion.i>
               </span>
               <div className="mobile__menu">
-              <span onClick={menuToggle}>
-                <i className="bi bi-list"></i>
-              </span>
+                <span onClick={menuToggle}>
+                  <i className="bi bi-list"></i>
+                </span>
+              </div>
             </div>
-            </div>
-            
           </div>
         </Row>
       </Container>
