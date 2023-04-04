@@ -32,7 +32,10 @@ const Header = () => {
 
   const menuToggle = () => menuRef.current.classList.toggle("active__menu");
   const navigateToCart = () => {
-    navigate('/cart')
+    navigate("/cart");
+  };
+  const navigateToProfile = () => {
+    navigate("/login");
   };
   return (
     <header className="header" ref={headerRef}>
@@ -73,6 +76,7 @@ const Header = () => {
               </span>
               <span>
                 <motion.i
+                onClick={navigateToProfile}
                   whileTap={{ scale: 1.2 }}
                   className="bi bi-person"
                 ></motion.i>
