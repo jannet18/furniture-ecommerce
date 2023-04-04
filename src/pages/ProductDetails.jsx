@@ -60,7 +60,7 @@ const ProductDetails = () => {
     toast.success("Item added successfully");
   };
   useEffect(() => {
-    window.scrollTop(0, 0);
+    window.scrollTo(0, 0);
   }, [product]);
 
   return (
@@ -145,14 +145,29 @@ const ProductDetails = () => {
                 <div className="product__review mt-5">
                   <div className="review__wrapper">
                     <ul>
-                      {product.reviews.map(product.item, (id) => (
-                        <li key={product.item.id} className="mb-4">
-                          <h6>Jane Doe</h6>
-                          <span>{product.item.rating} rating</span>
-                          <p>{product.item.text}</p>
-                        </li>
-                      ))}
+                      {
+                        product.reviews.map((review, id) => {
+                          return(
+                            <li key={id} className="mb-4">
+                              <h6>Jane Doe</h6>
+                              <span>{review.rating}</span>
+                              <p>{review.text}</p>
+                            </li>
+                          )
+                        })
+                      }
                     </ul>
+                    {/* <ul>
+        
+                      {product.reviews.map(review, id => { return (
+                        <li key={id} className="mb-4">
+                          <h6>Jane Doe</h6>
+                          <span>{review.rating} rating</span>
+                          <p>{review.text}</p>
+                        </li>
+                      )},
+                        
+                    </ul> */}
                     <div className="review__form">
                       <h4>Share your experience</h4>
                       <form action="" onSubmit={handleSubmit}>
