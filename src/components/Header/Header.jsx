@@ -14,11 +14,11 @@ import { toast } from "react-toastify";
 const Header = () => {
   const headerRef = useRef(null);
   const menuRef = useRef(null);
-  // const {currentUser} = useAuth([]);
+   const {currentUser} = useAuth([]);
   const navigate = useNavigate();
 
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
-  const currentUser = useAuth();
+  // const currentUser = useAuth();
   const profileActionRef = useRef(null);
 
   const stickyHeader = () => {
@@ -50,7 +50,7 @@ const Header = () => {
   // };
 
   const toggleProfileActions = () =>
-    profileActionRef.current?.classList?.toggle("show__profileActions");
+    profileActionRef.current?.classList?.toggle(".show__profileActions");
 
   const logout = () => {
     signOut(auth)
@@ -113,7 +113,7 @@ const Header = () => {
                 <div
                   className="profile__actions"
                   ref={profileActionRef}
-                  onClick={toggleProfileActions}
+                  // onClick={toggleProfileActions}
                 >
                   {currentUser ? (
                     <span onClick={logout}>Logout</span>
@@ -125,7 +125,7 @@ const Header = () => {
                   )}
                 </div>
               </div>
-              <p>{}</p>
+             
               <div className="mobile__menu">
                 <span onClick={menuToggle}>
                   <i className="bi bi-list"></i>

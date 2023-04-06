@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Form, FormGroup } from "reactstrap";
 // import MainSection from "../components/UI/MainSection";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../pages/sytles/Login.css";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/config";
@@ -30,6 +30,7 @@ const Login = () => {
 
       toast.success("Successfully logged in");
       navigate("/checkout");
+      
     } catch (error) {
       setLoading(false);
       toast.error(error.message);

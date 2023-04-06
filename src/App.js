@@ -27,6 +27,7 @@ function App() {
             exact
             path="/checkout"
             element={
+              // <Checkout/>
               <ProtectedRoute>
                 <Checkout />
               </ProtectedRoute>
