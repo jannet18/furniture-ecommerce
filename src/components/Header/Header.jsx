@@ -14,27 +14,29 @@ import { toast } from "react-toastify";
 const Header = () => {
   const headerRef = useRef(null);
   const menuRef = useRef(null);
-  const {currentUser} = useAuth(0);
+  // const {currentUser} = useAuth([]);
   const navigate = useNavigate();
 
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+  const currentUser = useAuth();
   const profileActionRef = useRef(null);
 
   const stickyHeader = () => {
+  
     window.addEventListener("scroll", () => {
       if (
         document.body.scrollTop > 80 ||
         document.documentElement.scrollTop > 80
       ) {
-        headerRef.current.classList.add("stick__header");
+        headerRef.current?.classList?.add("stick__header");
       } else {
-        headerRef.current.classList.remove("sticky__header");
+        headerRef.current?.classList?.remove("sticky__header");
       }
     });
   };
 
-
   useEffect(() => {
+
     stickyHeader();
     return () => window.removeEventListener("scroll", stickyHeader);
   });
@@ -47,17 +49,19 @@ const Header = () => {
   //   navigate("/login");
   // };
 
-  const toggleProfileActions = () => 
-    profileActionRef.current.classList.toggle("show__profileActions");
+  const toggleProfileActions = () =>
+    profileActionRef.current?.classList?.toggle("show__profileActions");
 
-    const logout = () => {
-      signOut(auth).then(() => {
-        toast.success('Logged Out');
-        navigate('/home')
-      }).catch(err => {
-        toast.error(err.message)
+  const logout = () => {
+    signOut(auth)
+      .then(() => {
+        toast.success("Logged Out");
+        navigate("/home");
       })
-    }
+      .catch((err) => {
+        toast.error(err.message);
+      });
+  };
 
   return (
     <header className="header" ref={headerRef}>

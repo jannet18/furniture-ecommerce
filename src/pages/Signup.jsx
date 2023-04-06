@@ -50,13 +50,14 @@ const Signup = () => {
             });
 
             // store user data n firestore
+            if(doc.doc.length === 0) {
             await setDoc(doc(db, "users", user.uid), {
               uid: user.uid,
               displayName: username,
               email,
               photoURL: downloadURL,
             });
-          });
+          }});
         }
       );
       // console.log(user);
