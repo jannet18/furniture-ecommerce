@@ -14,7 +14,7 @@ import { toast } from "react-toastify";
 const Header = () => {
   const headerRef = useRef(null);
   const menuRef = useRef(null);
-  const { currentUser } = useAuth();
+  const {currentUser} = useAuth(0);
   const navigate = useNavigate();
 
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
