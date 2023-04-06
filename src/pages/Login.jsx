@@ -11,8 +11,8 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  navigate = useNavigate();
+  const [loading, setLoading] = useState("");
+  const navigate = useNavigate();
 
   const signIn = async (e) => {
     e.preventDefault()
@@ -27,6 +27,7 @@ const Login = () => {
 
     } catch (error) {
     setLoading(false)
+    navigate('/checkout')
     toast.error(error.message)
     }
   }
@@ -37,7 +38,7 @@ const Login = () => {
         <Container>
           <Row>
            {
-            loading? <Col lg="12" className="text-center">
+            loading ? <Col lg="12" className="text-center">
               <h5 className="fw-bold">Loading...</h5>
             </Col> :  <Col lg="6" className="m-auto text-center">
               <h3 className="fw-bold mb-4">Login</h3>

@@ -15,6 +15,7 @@ const ProductDetails = () => {
   const [rating, setRating] = useState(null);
   const { id } = useParams();
   const reviewUser = useRef("");
+  const reviewMsg = useRef("");
   const dispatch = useDispatch();
 
   const product = products.find((item) => item.id === id);
@@ -33,6 +34,7 @@ const ProductDetails = () => {
   // console.log(imgUrl)
 
   const relatedProducts = products.filter((item) => item.category === category);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -146,11 +148,11 @@ const ProductDetails = () => {
                   <div className="review__wrapper">
                     <ul>
                       {
-                        product.reviews.map((review, id) => {
+                        product?.reviews?.map((review, id) => {
                           return(
                             <li key={id} className="mb-4">
                               <h6>Jane Doe</h6>
-                              <span>{review.rating}</span>
+                              <span>{review.rating} (rating)</span>
                               <p>{review.text}</p>
                             </li>
                           )

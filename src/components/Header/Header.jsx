@@ -5,12 +5,20 @@ import { motion } from "framer-motion";
 import logo from "../../assets/images/logo1.jpg";
 import { Container, Row } from "reactstrap";
 import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../firebase/useAuth";
+import userIcon from "../../assets/images/love.jpg";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase/config";
+import { toast } from "react-toastify";
 
 const Header = () => {
   const headerRef = useRef(null);
   const menuRef = useRef(null);
+  const { currentUser } = useAuth();
   const navigate = useNavigate();
+
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+  const profileActionRef = useRef(null);
 
   const stickyHeader = () => {
     window.addEventListener("scroll", () => {
@@ -25,6 +33,7 @@ const Header = () => {
     });
   };
 
+
   useEffect(() => {
     stickyHeader();
     return () => window.removeEventListener("scroll", stickyHeader);
@@ -34,9 +43,22 @@ const Header = () => {
   const navigateToCart = () => {
     navigate("/cart");
   };
-  const navigateToProfile = () => {
-    navigate("/login");
-  };
+  // const navigateToProfile = () => {
+  //   navigate("/login");
+  // };
+
+  const toggleProfileActions = () => 
+    profileActionRef.current.classList.toggle("show__profileActions");
+
+    const logout = () => {
+      signOut(auth).then(() => {
+        toast.success('Logged Out');
+        navigate('/home')
+      }).catch(err => {
+        toast.error(err.message)
+      })
+    }
+
   return (
     <header className="header" ref={headerRef}>
       <Container>
@@ -74,13 +96,32 @@ const Header = () => {
 
                 <i className="bi bi-cart3"></i>
               </span>
-              <span>
-                <motion.i
-                onClick={navigateToProfile}
+              <div className="profile">
+                <motion.img
+                  className="profile__img"
+                  // onClick={navigateToProfile}
                   whileTap={{ scale: 1.2 }}
-                  className="bi bi-person"
-                ></motion.i>
-              </span>
+                  src={currentUser ? currentUser.photoURL : userIcon}
+                  onClick={toggleProfileActions}
+                  alt=""
+                />
+
+                <div
+                  className="profile__actions"
+                  ref={profileActionRef}
+                  onClick={toggleProfileActions}
+                >
+                  {currentUser ? (
+                    <span onClick={logout}>Logout</span>
+                  ) : (
+                    <div className="d-flex align-items-center justify-content-center">
+                      <Link to="/signup">Signup</Link>
+                      <Link to="/login">Login</Link>
+                    </div>
+                  )}
+                </div>
+              </div>
+              <p>{}</p>
               <div className="mobile__menu">
                 <span onClick={menuToggle}>
                   <i className="bi bi-list"></i>
