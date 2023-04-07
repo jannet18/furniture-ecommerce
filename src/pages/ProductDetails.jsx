@@ -150,8 +150,8 @@ const ProductDetails = () => {
                         return (
                           <li key={id} className="mb-4">
                             <h6>Jane Doe</h6>
-                            <span>{review.rating} (rating)</span>
-                            <p>{review.text}</p>
+                            <span>{review?.rating} (rating)</span>
+                            <p>{review?.text}</p>
                           </li>
                         );
                       })}

@@ -15,7 +15,7 @@ const Checkout = () => {
         <Container>
           <Row>
             <Col lg="8">
-              <h6 className="mb-4 fw-bold mt-2">Billing Information</h6>
+              <h6 className="mb-4 fw-bold mt-4">Billing Information</h6>
               <Form>
                 <FormGroup className="form__group">
                   <input type="text" placeholder="Enter your name" />

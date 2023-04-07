@@ -19,10 +19,12 @@ import { useLocation } from "react-router-dom";
 
 function App() {
   const location = useLocation();
+  
 
   return (
     <>
-        {location?.path?.startsWith("/dashboard") ? <AdminNav /> : <Header />}
+    
+        {window.location && window.location?.pathname?.startsWith("/dashboard") ? <AdminNav/> && <AdminNav /> : <Header />}
 
         <Routes>
           <Route exact path="/" element={<Home />} />
@@ -31,10 +33,10 @@ function App() {
           <Route exact path="/shop/:id" element={<ProductDetails />} />
           <Route exact path="/cart" element={<Cart />} />
           <Route path="/" element={<ProtectedRoute />}>
-            <Route path="checkout" element={<Checkout />} />
+            <Route path="/checkout" element={<Checkout />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/dashboard/all-products" element={<AllProducts />} />
-            <Route path="/dashboard/add-products" element={<AddProducts />} />
+            <Route path="/dashboard/allproducts" element={<AllProducts />} />
+            <Route path="/dashboard/addproduct" element={<AddProducts />} />
           </Route>
 
           <Route exact path="/login" element={<Login />} />

@@ -3,6 +3,8 @@
     border: 1px solid var(--card-bg-02);
 }
 .checkout__cart {
+    margin-left: 8rem;
+    margin-top: 4rem;
     padding: 20px;
     background: var(--primary-color);
     color: #fff;
