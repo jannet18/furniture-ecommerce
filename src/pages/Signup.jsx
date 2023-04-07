@@ -49,7 +49,7 @@ const Signup = () => {
               photoURL: downloadURL,
             });
 
-            // store user data n firestore
+            // store user data in firestore
             if(doc.doc.length === 0) {
             await setDoc(doc(db, "users", user.uid), {
               uid: user.uid,

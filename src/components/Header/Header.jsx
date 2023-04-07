@@ -105,7 +105,7 @@ const Header = () => {
                   className="profile__img"
                   // onClick={navigateToProfile}
                   whileTap={{ scale: 1.2 }}
-                  src={currentUser ? currentUser.photoURL : userIcon}
+                  src={currentUser && currentUser ? currentUser.photoURL : userIcon}
                   onClick={toggleProfileActions}
                   alt=""
                 />

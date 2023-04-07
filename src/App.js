@@ -10,7 +10,7 @@ import Checkout from "./pages/Checkout";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import ProtectedRoute from "./pages/ProtectedRoute";
+import ProtectedRoute from "./components/UI/ProtectedRoute";
 import Dashboard from "./admin/Dashboard";
 import AllProducts from "./admin/AllProducts";
 import AddProducts from "./admin/AddProducts";
