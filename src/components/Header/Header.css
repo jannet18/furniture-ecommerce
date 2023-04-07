@@ -111,9 +111,6 @@
     display: block !important;
 }
 
-.profile__links {
-    display: block;
-}
 .mobile__menu {
     font-size: 1.3rem;
     color: var(--primary-color);

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Form, FormGroup } from "reactstrap";
+import Helmet from "../components/Helmet/Helmet";
 // import MainSection from "../components/UI/MainSection";
 import { Link } from "react-router-dom";
 import "../pages/sytles/Login.css";
@@ -37,7 +38,7 @@ const Login = () => {
     }
   };
   return (
-    <section>
+    <Helmet title="Login">
       {/* <MainSection /> */}
       <section>
         <Container>
@@ -79,7 +80,7 @@ const Login = () => {
           </Row>
         </Container>
       </section>
-    </section>
+    </Helmet>
   );
 };
 

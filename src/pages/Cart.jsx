@@ -1,5 +1,6 @@
 import React from "react";
 import ".././pages/sytles/Cart.css";
+import Helmet from "../components/Helmet/Helmet";
 import MainSection from "../components/UI/MainSection";
 import { Container, Row, Col } from "reactstrap";
 import { motion } from "framer-motion";
@@ -11,10 +12,9 @@ const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const totalAmount = useSelector((state) => state.cart.totalAmount);
   return (
-    <section>
-      <section>
-        <MainSection />
-      </section>
+    <Helmet title="Cart">
+      <MainSection title="Shopping Cart" />
+
       <section>
         <Container>
           <Row>
@@ -62,7 +62,7 @@ const Cart = () => {
           </Row>
         </Container>
       </section>
-    </section>
+    </Helmet>
   );
 };
 

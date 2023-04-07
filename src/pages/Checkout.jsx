@@ -1,4 +1,5 @@
 import React from "react";
+import Helmet from "../components/Helmet/Helmet";
 import { Container, Row, Col, Form, FormGroup } from "reactstrap";
 import MainSection from "../components/UI/MainSection";
 import "../pages/sytles/Checkout.css";
@@ -8,8 +9,8 @@ const Checkout = () => {
   const totalQty = useSelector(state => state.cart.totalQuantity)
   const totalAmount = useSelector(state => state.cart.totalAmount)
   return (
-    <section>
-      <MainSection />
+    <Helmet title="Checkout">
+      <MainSection title="Checkout" />
       <section>
         <Container>
           <Row>
@@ -62,7 +63,7 @@ const Checkout = () => {
           </Row>
         </Container>
       </section>
-    </section>
+    </Helmet>
   );
 };
 

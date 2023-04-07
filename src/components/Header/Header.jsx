@@ -118,7 +118,7 @@ const Header = () => {
                   {currentUser && currentUser ? (
                     <span onClick={logout}>Logout</span>
                   ) : (
-                    <div className="profile__links">
+                    <div className="d-flex align-items-center justify-content-center flex-column">
                       <Link to="/signup">Signup</Link>
                       <Link to="/login">Login</Link>
                       <Link to="/dashboard">Dashboard</Link>

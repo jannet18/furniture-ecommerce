@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Helmet from "../components/Helmet/Helmet";
 import { Container, Row, Col, Form, FormGroup } from "reactstrap";
 // import MainSection from "../components/UI/MainSection";
 import { Link } from "react-router-dom";
@@ -50,7 +51,7 @@ const Signup = () => {
             });
 
             // store user data in firestore
-            if(doc.doc.length === 0) {
+            if(doc && !doc.length) {
             await setDoc(doc(db, "users", user.uid), {
               uid: user.uid,
               displayName: username,
@@ -70,7 +71,7 @@ const Signup = () => {
     }
   };
   return (
-    <section>
+    <Helmet title="Signup">
       {/* <MainSection /> */}
       <section>
         <Container>
@@ -132,7 +133,7 @@ const Signup = () => {
           </Row>
         </Container>
       </section>
-    </section>
+    </Helmet>
   );
 };
 

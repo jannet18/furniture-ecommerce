@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import { useParams } from "react-router-dom";
 import products from ".././assets/data/products";
+import Helmet from "../components/Helmet/Helmet";
 import MainSection from "../components/UI/MainSection";
 import ".././pages/sytles/ProductDetails.css";
 import { motion } from "framer-motion";
@@ -66,10 +67,8 @@ const ProductDetails = () => {
   }, [product]);
 
   return (
-    <section>
-      <div>
-        <MainSection />
-      </div>
+    <Helmet title={productName}>
+      <MainSection title={productName} />
 
       <section>
         <Container>
@@ -147,17 +146,15 @@ const ProductDetails = () => {
                 <div className="product__review mt-5">
                   <div className="review__wrapper">
                     <ul>
-                      {
-                        product?.reviews?.map((review, id) => {
-                          return(
-                            <li key={id} className="mb-4">
-                              <h6>Jane Doe</h6>
-                              <span>{review.rating} (rating)</span>
-                              <p>{review.text}</p>
-                            </li>
-                          )
-                        })
-                      }
+                      {product?.reviews?.map((review, id) => {
+                        return (
+                          <li key={id} className="mb-4">
+                            <h6>Jane Doe</h6>
+                            <span>{review.rating} (rating)</span>
+                            <p>{review.text}</p>
+                          </li>
+                        );
+                      })}
                     </ul>
                     {/* <ul>
         
@@ -239,7 +236,7 @@ const ProductDetails = () => {
           </Row>
         </Container>
       </section>
-    </section>
+    </Helmet>
   );
 };
 
