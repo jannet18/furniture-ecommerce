@@ -98,15 +98,19 @@
     z-index: 8;
     padding: 10px;
     display: flex;
-    align-items: center;
+    align-items: flex;
     flex-direction: column;
     background: var(--card-bg-01);
     line-height: 25px;
-    display: none;
+    /* display: none; */
     cursor: pointer;
 }
 
 .show__profileActions {
+    display: block;
+}
+
+.profile__links {
     display: block;
 }
 .mobile__menu {
