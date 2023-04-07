@@ -90,7 +90,7 @@
     position: relative;
     z-index: 9;
 }
-.profile .profile__actions {
+.nav__icons .profile .profile__actions {
     position: absolute;
     top: 96%;
     left: 4%;

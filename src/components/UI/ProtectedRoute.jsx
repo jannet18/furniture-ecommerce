@@ -7,7 +7,7 @@ function ProtectedRoute() {
   const { currentUser } = useAuth();
   return (
     //  currentUser ? children : <Navigate to="/login"/>
-    currentUser ? <Outlet /> : <Navigate to="/login" />
+    currentUser && currentUser ? <Outlet /> : <Navigate to="/login" />
   );
 }
 

@@ -41,7 +41,7 @@ const Header = () => {
     return () => window.removeEventListener("scroll", stickyHeader);
   });
 
-  const menuToggle = () => menuRef.current.classList.toggle("active__menu");
+  const menuToggle = () => menuRef.current?.classList?.toggle("active__menu");
   const navigateToCart = () => {
     navigate("/cart");
   };
@@ -50,7 +50,7 @@ const Header = () => {
   // };
 
   const toggleProfileActions = () =>
-    profileActionRef.current?.classList?.toggle(".show__profileActions");
+    profileActionRef.current?.classList?.toggle("show__profileActions");
 
   const logout = () => {
     signOut(auth)
@@ -115,7 +115,7 @@ const Header = () => {
                   ref={profileActionRef}
                   // onClick={toggleProfileActions}
                 >
-                  {currentUser ? (
+                  {currentUser && currentUser ? (
                     <span onClick={logout}>Logout</span>
                   ) : (
                     <div className="profile__links">

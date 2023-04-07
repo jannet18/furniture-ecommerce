@@ -14,7 +14,7 @@ const useAuth = () => {
       }
     });
   });
-  return currentUser;
+  return {currentUser};
 };
 
 export default useAuth;
