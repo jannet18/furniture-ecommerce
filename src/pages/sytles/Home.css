@@ -59,6 +59,13 @@
     color: var(--primary-color);
 }
 
+
+@media screen and (max-width: 1024) {
+    .timer__count img {
+        display: none;
+        
+    }
+}
 @media screen and(max-width: 992px){
     .hero__content h2 {
         font-size: 2rem;

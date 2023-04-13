@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import AddProducts from './AddProducts';
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <div>{<AddProducts/>}</div>
   )
 }
 

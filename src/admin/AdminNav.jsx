@@ -1,7 +1,8 @@
 import React from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row } from "reactstrap";
 import useAuth from "../firebase/useAuth";
 import "../pages/sytles/AdminNav.css";
+import { NavLink } from "react-router-dom";
 
 const AdminNav = () => {
   const { currentUser } = useAuth();
@@ -16,7 +17,6 @@ const AdminNav = () => {
                 <div className="search__box">
                   <input type="text" placeholder="" />
                   <span>
-                    {" "}
                     <i className="bi bi-search"></i>
                   </span>
                 </div>
@@ -34,6 +34,56 @@ const AdminNav = () => {
           </Container>
         </div>
       </header>
+      <section className="admin__menu p-0">
+        <Container>
+          <Row>
+            <div className="admin__navigation">
+              <ul className="admin__menu-list">
+                <li className="admin__menu-item">
+                  <NavLink
+                    to="/dashboard"
+                    className={(navClass) =>
+                      navClass.isActive ? "active__admin-menu " : ""
+                    }
+                  >
+                    Dashboard
+                  </NavLink>
+                </li>
+                <li className="admin__menu-item">
+                  <NavLink
+                    to="/dashboard/allproducts"
+                    className={(navClass) =>
+                      navClass.isActive ? "active__admin-menu" : ""
+                    }
+                  >
+                    All Products
+                  </NavLink>
+                </li>
+                <li className="admin__menu-item">
+                  <NavLink
+                    to="/dashboard/orders"
+                    className={(navClass) =>
+                      navClass.isActive ? "active__admin-menu" : ""
+                    }
+                  >
+                    Orders
+                  </NavLink>
+                </li>
+                <li className="admin__menu-item">
+                  <NavLink
+                    to="/dashboard/users"
+                    className={(navClass) =>
+                      navClass.isActive ? "active__admin-menu" : ""
+                    }
+                  >
+                    Users
+                  </NavLink>
+                </li>
+              </ul>
+            </div>
+          </Row>
+        </Container>
+      </section>
     </>
   );
 };
