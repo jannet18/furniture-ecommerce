@@ -13,32 +13,32 @@ const Shop = () => {
     const filterValue = e.target.value;
 
     if (filterValue === "chair") {
-      const filterProducts = products.filter(
-        (item) => item.category === "chair"
+      const filterProducts = products?.filter(
+        (item) => item?.category === "chair"
       );
 
       setProductsData(filterProducts);
     }
 
     if (filterValue === "sofa") {
-      const filterProducts = products.filter(
-        (item) => item.category === "sofa"
+      const filterProducts = products?.filter(
+        (item) => item?.category === "sofa"
       );
 
       setProductsData(filterProducts);
     }
 
     if (filterValue === "chaise") {
-      const filterProducts = products.filter(
-        (item) => item.category === "chaise"
+      const filterProducts = products?.filter(
+        (item) => item?.category === "chaise"
       );
 
       setProductsData(filterProducts);
     }
 
     if (filterValue === "outdoor") {
-      const filterProducts = products.filter(
-        (item) => item.category === "outdoor"
+      const filterProducts = products?.filter(
+        (item) => item?.category === "outdoor"
       );
 
       setProductsData(filterProducts);
@@ -48,8 +48,8 @@ const Shop = () => {
   const handleSearch = (e) => {
     const searchTerm = e.target.value;
 
-    const searchedProducts = products.filter((item) =>
-      item.productName
+    const searchedProducts = products?.filter((item) =>
+      item?.productName
         .toString()
         .toLowerCase()
         .includes(searchTerm.toLowerCase())
@@ -101,7 +101,7 @@ const Shop = () => {
         <section className="pt-0">
           <Container>
             <Row>
-              {productsData.length === 0 ? (
+              {productsData?.length === 0 ? (
                 <h1 className="text-center fs-4">Not available!</h1>
               ) : (
                 <ProductsLists data={productsData} />
