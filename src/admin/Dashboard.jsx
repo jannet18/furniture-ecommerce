@@ -3,7 +3,7 @@ import AddProducts from './AddProducts';
 
 const Dashboard = () => {
   return (
-    <div>{<AddProducts/>}</div>
+    <div className='mb-5'>{<AddProducts/>}</div>
   )
 }
 

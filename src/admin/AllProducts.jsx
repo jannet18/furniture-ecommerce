@@ -1,50 +1,41 @@
 import React from "react";
-import { Container, Row, Col, Form, FormGroup } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
+import useGetData from "../firebase/useGetData";
 
 const AllProducts = () => {
+  const {data:productsData} = useGetData("products");
+  console.log(productsData)
   return (
     <section>
       <Container>
         <Row>
           <Col lg="12">
-            <h4 className="mb-5">Add Product</h4>
-            <div>
-              <Form>
-                <FormGroup className="form__group">
-                  <span>Product title</span>
-                  <input type="text" placeholder="" />
-                </FormGroup>
-                <FormGroup className="form__group">
-                  <span>Short Description</span>
-                  <input type="text" placeholder="" />
-                </FormGroup>
-                <FormGroup className="form__group">
-                  <span>Description</span>
-                  <input type="text" placeholder="" />
-                </FormGroup>
-                <div className="d-flex align-items-center justify-content-between">
-                  <FormGroup className="form__group w-50">
-                    <span>Price</span>
-                    <input type="number" placeholder="$" />
-                  </FormGroup>
-                  <FormGroup className="form__group w-50">
-                    <span>Category</span>
-                    <select className="w-100">
-                      <option value="chair">Chairs</option>
-                      <option value="sofa">Sofas</option>
-                      <option value="chaise">Chaise</option>
-                      <option value="outdoor">Outdoor</option>
-                    </select>
-                  </FormGroup>
-                </div>
-              </Form>
-            </div>
-            <div>
-              <FormGroup className="form__group">
-                <span>Product Image</span>
-                <input type="file" placeholder="$" />
-              </FormGroup>
-            </div>
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Title</th>
+                  <th>Category</th>
+                  <th>Price</th>
+                  <th>
+                    <button className="btn btn-danger">Delete</button>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <img src="" alt="" />
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <button className="btn btn-danger">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </Col>
         </Row>
       </Container>
