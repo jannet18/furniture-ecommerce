@@ -27,7 +27,7 @@ const AdminNav = () => {
                   <span>
                     <i className="bi bi-gear"></i>
                   </span>
-                  <img src={currentUser.photoURL} alt="" />
+                  <img src={currentUser && currentUser.photoURL} alt="" />
                 </div>
               </div>
             </div>

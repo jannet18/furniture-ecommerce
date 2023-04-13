@@ -9,10 +9,12 @@ import heroImg from ".././assets/images/hero2.jpg";
 import "./sytles/Home.css";
 import timerImg from "../assets/images/timer2.jpg";
 import Clock from "../components/UI/Clock";
-import products from "../assets/data/products";
+// import products from "../assets/data/products";
 import ProductsList from "../components/UI/ProductsList";
+import useGetData from "../firebase/useGetData";
 
 const Home = () => {
+  const { data: products, loading } = useGetData("products");
   const [trendingProducts, setTrendingProducts] = useState([]);
   const [bestSalesProducts, setBestSalesProducts] = useState([]);
   const [mobileProducts, setMobileProducts] = useState([]);
@@ -75,7 +77,11 @@ const Home = () => {
             <Col lg="12" className="text-center">
               <h2 className="section__title">Trending Products</h2>
             </Col>
-            <ProductsList data={trendingProducts} />
+            {loading ? (
+              <h5>Loading...</h5>
+            ) : (
+              <ProductsList data={trendingProducts} />
+            )}
           </Row>
         </Container>
       </section>
@@ -86,7 +92,11 @@ const Home = () => {
             <Col lg="12" className="text-center">
               <h2 className="section__title">Best Sales</h2>
             </Col>
-            <ProductsList data={bestSalesProducts} />
+            {loading ? (
+              <h5>Loading...</h5>
+            ) : (
+              <ProductsList data={bestSalesProducts} />
+            )}
           </Row>
         </Container>
       </section>
@@ -118,8 +128,16 @@ const Home = () => {
             <Col lg="12" className="text-center">
               <h2 className="section__title">New Arrivals</h2>
             </Col>
-            <ProductsList data={mobileProducts} />
-            <ProductsList data={outdoorProducts} />
+            {loading ? (
+              <h5>Loading...</h5>
+            ) : (
+              <ProductsList data={mobileProducts} />
+            )}
+            {loading ? (
+              <h5>Loading...</h5>
+            ) : (
+              <ProductsList data={outdoorProducts} />
+            )}
           </Row>
         </Container>
       </section>
@@ -129,6 +147,9 @@ const Home = () => {
             <Col lg="12" className="text-center">
               <h2 className="section__title">Popular Products</h2>
             </Col>
+            {
+            loading ? <h5>Loading...</h5> :  <ProductsList data={bestSalesProducts} />
+           }
             <ProductsList data={bestSalesProducts} />
           </Row>
         </Container>

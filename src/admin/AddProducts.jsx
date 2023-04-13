@@ -46,7 +46,7 @@ const AddProducts = () => {
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
             await addDoc(docRef, {
-              title: enterTitle,
+              productName: enterTitle,
               shortDesc: enterShortDesc,
               description: enterDescription,
               category: enterCategory,
@@ -54,10 +54,11 @@ const AddProducts = () => {
               imgUrl: downloadURL,
             });
           });
-          toast.success("Product successfully added!");
-          navigate("/dashboard/allproducts");
         }
       );
+      toast.success("Product successfully added!");
+      navigate("/dashboard/allproducts");
+
     } catch (error) {
       setLoading(false);
       toast.error("Product not added!");
@@ -126,8 +127,8 @@ const AddProducts = () => {
                         onChange={(e) => setEnterCategory(e.target.value)}
                         required
                       >
-                        <option value="chair">Chairs</option>
-                        <option value="sofa">Sofas</option>
+                        <option value="chair">Chair</option>
+                        <option value="sofa">Sofa</option>
                         <option value="chaise">Chaise</option>
                         <option value="outdoor">Outdoor</option>
                       </select>
@@ -147,7 +148,12 @@ const AddProducts = () => {
               </FormGroup>
             </div>
 
-            <motion.button whileTap={{scale  : 1.2 }} className="buy__btn" type="submit">
+            <motion.button
+              whileTap={{ scale: 1.2 }}
+              className="buy__btn"
+              type="submit"
+              onClick={addProduct}
+            >
               Add Product
             </motion.button>
           </Col>

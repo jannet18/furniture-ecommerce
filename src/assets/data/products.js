@@ -93,7 +93,7 @@ const products = [
       category: "sofa",
       price: 163,
       shortDesc:
-      "Contemporary Wool Sofa with Swen Pillow Back for Living Room",
+      "Contemporary Wool Sofa with Swen Pillow Back for Living Room.",
       description:
       "Unbelievably soft, undeniably stylish, made to stay that way We mean it when we say this deep feather sofa is comfortable.",
       reviews: [

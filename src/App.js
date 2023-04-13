@@ -15,6 +15,7 @@ import Dashboard from "./admin/Dashboard";
 import AllProducts from "./admin/AllProducts";
 import AddProducts from "./admin/AddProducts";
 import AdminNav from "./admin/AdminNav";
+import Users from "./admin/Users";
 import { useLocation } from "react-router-dom";
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/dashboard/allproducts" element={<AllProducts />} />
             <Route path="/dashboard/addproduct" element={<AddProducts />} />
+            <Route path="/dashboard/users" element={<Users />} />
           </Route>
 
           <Route exact path="/login" element={<Login />} />
