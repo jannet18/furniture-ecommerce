@@ -1,18 +1,27 @@
+import { getDocs } from "firebase/firestore";
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import useGetData from "../firebase/useGetData";
 import { db } from "../firebase/config";
-import { doc, deleteDoc } from "firebase/firestore";
+import { doc, where, query, collection } from "firebase/firestore";
 
 const Orders = () => {
   const { data: productsData, loading } = useGetData("products");
+
   console.log(productsData);
 
-  const deleteProduct = async (id) => {
-    await deleteDoc(doc(db, "products", id));
-    toast.success("Deleted successfully!");
-  };
+  const approved = () => {
+    const docRef = collection(db, "products");
+     const q = query(docRef, where( productsData?.productName === productsData?.productName?.id))
+    const querySnapshot = getDocs(q);
+    querySnapshot.forEach((doc) => {
+        console.log(doc.id)
+    })
+
+    return (doc.id)
+  }
+
   return (
     <section>
       <Container>
@@ -25,9 +34,7 @@ const Orders = () => {
                   <th>Title</th>
                   <th>Category</th>
                   <th>Price</th>
-                  <th>
-                    <button className="btn btn-primary">Complete</button>
-                  </th>
+                  <th className="d-grid gap-2 d-md-flex justify-content-md-end">In progress</th>
                 </tr>
               </thead>
               <tbody>
@@ -39,16 +46,17 @@ const Orders = () => {
                       <td>
                         <img src={product.imgUrl} alt="" />
                       </td>
-                      <td>{product.title}</td>
+                      <td>{product.productName}</td>
                       <td>{product.category}</td>
                       <td>{product.price}</td>
+                      <td className="d-grid gap-4 d-md-flex justify-content-md-end">
+                        <label htmlFor="completed"></label>
+                        <input type="checkbox"
+                        checked={approved} className="gap-4" />
+                        <button className="btn btn-outline-success">Completed</button>
+                      </td>
                       <td>
-                        <button
-                          onClick={deleteProduct}
-                          className="btn btn-primary"
-                        >
-                          Completed
-                        </button>
+                      
                       </td>
                     </tr>
                   ))

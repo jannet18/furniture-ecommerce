@@ -21,24 +21,24 @@ const Header = () => {
   // const currentUser = useAuth();
   const profileActionRef = useRef(null);
 
-  const stickyHeader = () => {
+  // const stickyHeader = () => {
   
-    window.addEventListener("scroll", () => {
-      if (
-        document.body.scrollTop > 80 ||
-        document.documentElement.scrollTop > 80
-      ) {
-        headerRef.current?.classList?.add("stick__header");
-      } else {
-        headerRef.current?.classList?.remove("sticky__header");
-      }
-    });
-  };
+  //   window.addEventListener("scroll", () => {
+  //     if (
+  //       document.body.scrollTop > 70 ||
+  //       document.documentElement.scrollTop > 70
+  //     ) {
+  //       headerRef.current?.classList?.add("stick__header");
+  //     } else {
+  //       headerRef.current?.classList?.remove("sticky__header");
+  //     }
+  //   });
+  // };
 
   useEffect(() => {
 
-    stickyHeader();
-    return () => window.removeEventListener("scroll", stickyHeader);
+    // stickyHeader();
+    // return () => window.removeEventListener("scroll", stickyHeader);
   });
 
   const menuToggle = () => menuRef.current?.classList?.toggle("active__menu");
@@ -105,7 +105,7 @@ const Header = () => {
                   className="profile__img"
                   // onClick={navigateToProfile}
                   whileTap={{ scale: 1.2 }}
-                  src={currentUser && currentUser ? currentUser.photoURL : userIcon}
+                  src={currentUser && currentUser ? currentUser?.photoURL : userIcon}
                   onClick={toggleProfileActions}
                   alt=""
                 />

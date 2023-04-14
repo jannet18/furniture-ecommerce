@@ -25,7 +25,7 @@ const Users = () => {
                             <th>Username</th>
                             <th>Email</th>
                             <th>Action</th>
-                            <th></th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -34,10 +34,10 @@ const Users = () => {
                             usersData?.map((user, uid) => (
                                 <tr key={uid}>
                                     <td>
-                                        <img src={user.photoURL} alt="" />
+                                        <img src={user?.photoURL} alt="" />
                                     </td>
-                                    <td>{user.displayName}</td>
-                                    <td>{user.email}</td>
+                                    <td>{user?.displayName}</td>
+                                    <td>{user?.email}</td>
                                     <td>
                                         <button className="btn btn-danger" onClick={() => {deleteUser(user.uid)}}>Delete</button>
                                     </td>

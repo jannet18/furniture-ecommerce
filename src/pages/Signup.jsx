@@ -113,6 +113,7 @@ const Signup = () => {
                     <input
                       type="file"
                       placeholder=""
+                      value={file}
                       onChange={(e) => setFile(e.target.file)}
                     />
                   </FormGroup>
