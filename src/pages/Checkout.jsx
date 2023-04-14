@@ -8,6 +8,10 @@ import { useSelector } from "react-redux";
 const Checkout = () => {
   const totalQty = useSelector(state => state.cart.totalQuantity)
   const totalAmount = useSelector(state => state.cart.totalAmount)
+
+  const placeOrder = () => {
+    
+  }
   return (
     <Helmet title="Checkout">
       <MainSection title="Checkout" />

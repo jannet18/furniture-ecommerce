@@ -8,7 +8,7 @@ const products = [
       shortDesc:
       "This loveseat, with its deep cushions and sturdy frame, will help you add maximum comfort and style to any living space in your home. Never believe that you have to sacrifice comfort for style—this couch has it both in spades.",
       description:
-      "Solid wood frame and block legs with durable 100% polyester fabric upholstery, heavy-duty webbing, and down-filled cushions Seat and back cushions are filled with luxurious down. Assemble in 15 minutes or less To clean, avoid moisture and wipe down with a clean, soft cloth. Ships in several boxes, may ship separately Free returns for 30 days. 3-year warranty ",
+      "Solid wood frame and block legs with durable 100% polyester fabric upholstery, heavy-duty webbing, and down-filled cushions Seat and back cushions are filled with luxurious down. Assemble in 15 minutes or less To clean, avoid moisture and wipe down with a clean, soft cloth. Ships in several boxes, may ship separately Free returns for 30 days. 3-year warranty.",
   
       reviews: [
         {

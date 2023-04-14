@@ -1,14 +1,24 @@
 import React from 'react';
 import ProductCard from './ProductCard';
+import useGetData from '../../firebase/useGetData';
 
-const ProductsList = ({data}) => {
+const ProductsList = () => {
+
+const { data: productsData, loading } = useGetData("products");
+
+
   return (
     <>
+   {
+    loading? <h5>Loading...</h5> : <>
     {
-      data && data?.map((item, id) => (
+      productsData && productsData?.map((item, id) => (
         <ProductCard item={item} key={id} />
       ))
     }
+     </>
+   }
+  
       
     </>
   )

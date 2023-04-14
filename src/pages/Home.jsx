@@ -14,6 +14,8 @@ import ProductsList from "../components/UI/ProductsList";
 import useGetData from "../firebase/useGetData";
 
 const Home = () => {
+ 
+
   const { data: products, loading } = useGetData("products");
   const [trendingProducts, setTrendingProducts] = useState([]);
   const [bestSalesProducts, setBestSalesProducts] = useState([]);
@@ -21,6 +23,8 @@ const Home = () => {
   const [outdoorProducts, setOutdoorProducts] = useState([]);
 
   const year = new Date().getFullYear();
+
+  
 
   useEffect(() => {
     const filteredTrendingProducts = products.filter(
@@ -41,7 +45,9 @@ const Home = () => {
     setTrendingProducts(filteredTrendingProducts);
     setMobileProducts(filteredMobileProducts);
     setOutdoorProducts(filteredOutdoorProducts);
-  }, []);
+
+  },[]);
+
   return (
     <Helmet title={"Home"}>
       <section className="hero__section">

@@ -4,10 +4,15 @@ import { motion } from "framer-motion";
 import { Container, Row, Col, Form, FormGroup } from "reactstrap";
 import { db, storage } from "../firebase/config";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const AddProducts = () => {
+
+  const [productLists, setProductLists] = useState([]);
+
+// new movie states
   const [enterTitle, setEnterTitle] = useState("");
   const [enterShortDesc, setEnterShortDesc] = useState("");
   const [enterDescription, setEnterDescription] = useState("");
@@ -17,6 +22,26 @@ const AddProducts = () => {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+
+  const productsCollectionRef = collection(db, "products");
+
+  const getProductLists = async () => {
+    try {
+      const data = await getDocs(productsCollectionRef);
+      const filteredData = data.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setProductLists(filteredData)
+      console.log(filteredData)
+    } catch(error) {
+      toast.error("error.message")
+    }
+  }
+
+  useEffect(() => {
+    getProductLists();
+  },[])
 
   const addProduct = async (e) => {
     e.preventDefault();
@@ -115,7 +140,7 @@ const AddProducts = () => {
                         type="number"
                         placeholder="$"
                         value={enterPrice}
-                        onChange={(e) => setEnterPrice(e.target.value)}
+                        onChange={(e) => setEnterPrice(Number(e.target.value))}
                         required
                       />
                     </FormGroup>
