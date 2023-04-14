@@ -1,7 +1,8 @@
 import React from "react";
 // import productImg from "../../assets/images/couch.jpg";
 import { motion } from "framer-motion";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../../pages/sytles/productCard.css";
 import { Col } from "reactstrap";
 import { useDispatch } from "react-redux";
@@ -10,6 +11,7 @@ import { toast } from "react-toastify";
 
 const ProductCard = ({item}) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   // const {id} = useParams();
 
   const addToCart = () => {
@@ -21,7 +23,7 @@ const ProductCard = ({item}) => {
     }))
 
     toast.success('Item added successfully')
-    Navigate("/productdetails")
+    navigate("/shop/:id")
     // alert('Item added')
   }
 

@@ -39,7 +39,7 @@ const ProductDetails = () => {
       }
     };
     getProduct();
-  }, []);
+  }, [product]);
 
   const {
     imgUrl,
@@ -124,7 +124,7 @@ const ProductDetails = () => {
               </div>
               <div className="d-flex align-items-center gap-5">
                 <span className="product__price">${price}</span>
-                <span>Category: {category?.toUpperCase()}</span>
+                <span>Category: {category}</span>
               </div>
 
               <p className="mt-3">{shortDesc}</p>
