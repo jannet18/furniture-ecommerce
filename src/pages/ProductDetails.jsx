@@ -56,7 +56,7 @@ const ProductDetails = () => {
   // console.log(imgUrl)
 
   const relatedProducts = productsData?.filter(
-    (item) => item?.category === category
+    (product) => product?.category === category
   );
 
   const handleSubmit = (e) => {

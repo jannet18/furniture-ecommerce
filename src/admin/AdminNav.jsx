@@ -1,11 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row } from "reactstrap";
 import useAuth from "../firebase/useAuth";
 import "../pages/sytles/AdminNav.css";
 import { NavLink } from "react-router-dom";
+import useGetData from "../firebase/useGetData";
 
 const AdminNav = () => {
   const { currentUser } = useAuth();
+  const [productData, setProductData] = useState();
+  const { data: productsData} = useGetData("products")
+  // const [search, setSearch] = useState();
+
+
+  const handleSearched = (e) => {
+    const searchTerm = e.target.value;
+
+    const searchedProducts = productsData?.filter((item) =>
+      item?.productName
+        .toString()
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase())
+    );
+
+    setProductData(searchedProducts);
+  };
+  
   return (
     <>
       <header className="admin__header">
@@ -17,7 +36,7 @@ const AdminNav = () => {
                 <div className="search__box">
                   <input type="text" placeholder="" />
                   <span>
-                    <i className="bi bi-search"></i>
+                    <i className="bi bi-search"  data={productData} onChange={handleSearched}></i>
                   </span>
                 </div>
                 <div className="admin__nav-top-right">

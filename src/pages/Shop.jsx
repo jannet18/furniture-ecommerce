@@ -3,7 +3,7 @@ import Helmet from "../components/Helmet/Helmet";
 import MainSection from "../components/UI/MainSection";
 import "../pages/sytles/Shop.css";
 import { Container, Row, Col } from "reactstrap";
-import products from ".././assets/data/products";
+// import products from ".././assets/data/products";
 import ProductsLists from "../components/UI/ProductsList";
 import useGetData from "../firebase/useGetData";
 
@@ -17,7 +17,7 @@ const Shop = () => {
 
     if (filterValue === "chair") {
       const filterProducts = productsData?.filter(
-        (item) => item?.category === "chair"
+        (product) => product?.category === "chair"
       );
 
       setProductData(filterProducts);
@@ -25,7 +25,7 @@ const Shop = () => {
 
     if (filterValue === "sofa") {
       const filterProducts = productsData?.filter(
-        (item) => item?.category === "sofa"
+        (product) => product?.category === "sofa"
       );
 
       setProductData(filterProducts);
@@ -33,7 +33,7 @@ const Shop = () => {
 
     if (filterValue === "chaise") {
       const filterProducts = productsData?.filter(
-        (item) => item?.category === "chaise"
+        (product) => product?.category === "chaise"
       );
 
       setProductData(filterProducts);
@@ -41,7 +41,7 @@ const Shop = () => {
 
     if (filterValue === "outdoor") {
       const filterProducts = productsData?.filter(
-        (item) => item?.category === "outdoor"
+        (product) => product?.category === "outdoor"
       );
 
       setProductData(filterProducts);
@@ -51,8 +51,8 @@ const Shop = () => {
   const handleSearch = (e) => {
     const searchTerm = e.target.value;
 
-    const searchedProducts = productsData?.filter((item) =>
-      item?.productName
+    const searchedProducts = productsData?.filter((product) =>
+      product?.productName
         .toString()
         .toLowerCase()
         .includes(searchTerm.toLowerCase())

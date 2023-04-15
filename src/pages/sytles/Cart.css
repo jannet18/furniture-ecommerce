@@ -1,8 +1,15 @@
-.table tr td img {
+.table tr td .img__image {
     width: 80px !important;
     height: 80px !important;
     object-fit: cover;
 }
+/* .img__image {
+    width: 100px !important;
+    height: 100px !important;
+    object-fit: contain;
+    object-fit: cover;
+} */
+
 td i{
     cursor: pointer;
 }

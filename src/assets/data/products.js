@@ -229,7 +229,7 @@ const products = [
       category: "chair",
       price: 112,
       shortDesc:
-      "Pair of armchairs with foot stools",
+      "Pair of armchairs with foot stools.",
       description:
       "Modernity specialises in the collection and sale of rare and high-grade furniture, ceramics, glass, lighting and jewellery by the most renowned Scandinavian designers of the 20th Century.",
       reviews: [

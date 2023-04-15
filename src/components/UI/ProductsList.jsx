@@ -12,8 +12,8 @@ const { data: productsData, loading } = useGetData("products");
    {
     loading? <h5>Loading...</h5> : <>
     {
-      productsData && productsData?.map((item, id) => (
-        <ProductCard item={item} key={id} />
+      productsData && productsData?.map((product, id) => (
+        <ProductCard product={product} key={id} />
       ))
     }
      </>

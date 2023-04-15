@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const totalAmount = useSelector((state) => state.cart.totalAmount);
+
   return (
     <Helmet title="Cart">
       <MainSection title="Shopping Cart" />
@@ -32,8 +33,8 @@ const Cart = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {cartItems?.map((item, id) => (
-                      <Tr item={item} key={id} />
+                    {cartItems?.map((product, id) => (
+                      <Tr product={product} key={id} />
                     ))}
                   </tbody>
                 </table>
@@ -65,19 +66,19 @@ const Cart = () => {
   );
 };
 
-const Tr = ({ item }) => {
+const Tr = ({ product }) => {
   const dispatch = useDispatch();
   const deleteProduct = () => {
-    dispatch(cartActions.deleteItem(item?.id));
+    dispatch(cartActions.deleteItem(product?.id));
   };
   return (
     <tr>
       <td>
-        <img src={item?.imgUrl} alt="" />
+        <img className="img__image" src={product?.imgUrl} alt=""/>
       </td>
-      <td>{item?.productName}</td>
-      <td>{item?.price}</td>
-      <td>{item?.quantity}</td>
+      <td>{product?.productName}</td>
+      <td>{product?.price}</td>
+      <td>{product?.quantity}</td>
       <td>
         <motion.i
           whileTap={{ scale: 1.2 }}

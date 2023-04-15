@@ -27,18 +27,18 @@ const Home = () => {
   
 
   useEffect(() => {
-    const filteredTrendingProducts = productsData.filter(
-      (item) => item.category === "chair"
+    const filteredTrendingProducts = productsData?.filter(
+      (product) => product?.category === "chair"
     );
-    const filteredBestSalesProducts = productsData.filter(
-      (item) => item.category === "sofa"
+    const filteredBestSalesProducts = productsData?.filter(
+      (product) => product?.category === "sofa"
     );
 
-    const filteredMobileProducts = productsData.filter(
-      (item) => item.category === "chaise"
+    const filteredMobileProducts = productsData?.filter(
+      (product) => product?.category === "chaise"
     );
-    const filteredOutdoorProducts = productsData.filter(
-      (item) => item.category === "outdoor"
+    const filteredOutdoorProducts = productsData?.filter(
+      (product) => product?.category === "outdoor"
     );
 
     setBestSalesProducts(filteredBestSalesProducts);

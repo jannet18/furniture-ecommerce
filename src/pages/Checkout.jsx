@@ -3,15 +3,15 @@ import Helmet from "../components/Helmet/Helmet";
 import { Container, Row, Col, Form, FormGroup } from "reactstrap";
 import MainSection from "../components/UI/MainSection";
 import "../pages/sytles/Checkout.css";
+import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Checkout = () => {
-  const totalQty = useSelector(state => state.cart.totalQuantity)
-  const totalAmount = useSelector(state => state.cart.totalAmount)
+  const totalQty = useSelector((state) => state.cart.totalQuantity);
+  const totalAmount = useSelector((state) => state.cart.totalAmount);
 
-  const placeOrder = () => {
-    
-  }
+  
   return (
     <Helmet title="Checkout">
       <MainSection title="Checkout" />
@@ -58,10 +58,14 @@ const Checkout = () => {
                   </span>
                   <span>$0</span>
                 </h6>
-                <h4>Total Cost: <span>${totalAmount}</span></h4>
-                <button className="buy__btn auth__btn w-100">
-                  Place an Order
-                </button>
+                <h4>
+                  Total Cost: <span>${totalAmount}</span>
+                </h4>
+                <Link to="/dashboard">
+                  <motion.button whileTap={{ scale: 1.2 }} className="buy__btn auth__btn w-100">
+                    Place an Order
+                  </motion.button>
+                </Link>
               </div>
             </Col>
           </Row>
