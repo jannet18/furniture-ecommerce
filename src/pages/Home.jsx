@@ -16,7 +16,7 @@ import useGetData from "../firebase/useGetData";
 const Home = () => {
  
 
-  const { data: products, loading } = useGetData("products");
+  const { data: productsData, loading } = useGetData("products");
   const [trendingProducts, setTrendingProducts] = useState([]);
   const [bestSalesProducts, setBestSalesProducts] = useState([]);
   const [mobileProducts, setMobileProducts] = useState([]);
@@ -27,17 +27,17 @@ const Home = () => {
   
 
   useEffect(() => {
-    const filteredTrendingProducts = products.filter(
+    const filteredTrendingProducts = productsData.filter(
       (item) => item.category === "chair"
     );
-    const filteredBestSalesProducts = products.filter(
+    const filteredBestSalesProducts = productsData.filter(
       (item) => item.category === "sofa"
     );
 
-    const filteredMobileProducts = products.filter(
+    const filteredMobileProducts = productsData.filter(
       (item) => item.category === "chaise"
     );
-    const filteredOutdoorProducts = products.filter(
+    const filteredOutdoorProducts = productsData.filter(
       (item) => item.category === "outdoor"
     );
 

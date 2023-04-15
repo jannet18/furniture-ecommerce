@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 // import products from ".././assets/data/products";
 import Helmet from "../components/Helmet/Helmet";
 import MainSection from "../components/UI/MainSection";
@@ -22,8 +22,9 @@ const ProductDetails = () => {
   const reviewUser = useRef("");
   const reviewMsg = useRef("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const { data: products, loading } = useGetData("products");
+  const { data: productsData, loading } = useGetData("products");
 
   // const product = products.find((item) => item.id === id);
 
@@ -54,7 +55,7 @@ const ProductDetails = () => {
 
   // console.log(imgUrl)
 
-  const relatedProducts = products?.filter(
+  const relatedProducts = productsData?.filter(
     (item) => item?.category === category
   );
 
@@ -79,14 +80,15 @@ const ProductDetails = () => {
         id,
         productName,
         price,
-        image: imgUrl,
+        imgUrl,
       })
     );
     toast.success("Item added successfully");
+    navigate("/shop")
   };
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [product]);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, [product]);
 
   return (
     <Helmet title={productName}>

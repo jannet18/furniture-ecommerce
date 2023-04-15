@@ -14,7 +14,6 @@ const Cart = () => {
   return (
     <Helmet title="Cart">
       <MainSection title="Shopping Cart" />
-
       <section>
         <Container>
           <Row>
@@ -33,7 +32,7 @@ const Cart = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {cartItems.map((item, id) => (
+                    {cartItems?.map((item, id) => (
                       <Tr item={item} key={id} />
                     ))}
                   </tbody>
@@ -69,16 +68,16 @@ const Cart = () => {
 const Tr = ({ item }) => {
   const dispatch = useDispatch();
   const deleteProduct = () => {
-    dispatch(cartActions.deleteItem(item.id));
+    dispatch(cartActions.deleteItem(item?.id));
   };
   return (
     <tr>
       <td>
-        <img src={item.image} alt="" />
+        <img src={item?.imgUrl} alt="" />
       </td>
-      <td>{item.productName}</td>
-      <td>{item.price}</td>
-      <td>{item.quantity}</td>
+      <td>{item?.productName}</td>
+      <td>{item?.price}</td>
+      <td>{item?.quantity}</td>
       <td>
         <motion.i
           whileTap={{ scale: 1.2 }}

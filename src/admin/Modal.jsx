@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { db } from "../firebase/config";
-import { updateDoc } from "firebase/firestore";
+import { Container, Row, Col, Form, FormGroup } from "reactstrap";
+import { motion } from "framer-motion";
+import { toast } from "react-toastify";
+// import { useParams } from "react-router-dom";
+import { db, storage } from "../firebase/config";
+import { useNavigate } from "react-router-dom";
+import { uploadBytesResumable, getDownloadURL, ref} from "firebase/storage";
+import { updateDoc, collection } from "firebase/firestore";
 
 const Modal = () => {
-    const {id} = useParams();
+    // const {id} = useParams();
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false)
 
   const [updateProduct, setUpdateProduct] = useState({
     productName: "",
@@ -15,7 +22,7 @@ const Modal = () => {
     imgUrl: "",
   });
 
-  const handleChange = () => {
+  const handleChange = (e) => {
     setUpdateProduct({...setUpdateProduct, [e.target.id]: e.target.value});
   };
 
@@ -24,17 +31,17 @@ const Modal = () => {
   },[])
 
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     try {
-        const docRef = await collection(db, "products");
+        const docRef = collection(db, "products");
   
         const storageRef = ref(
           storage,
-          `productImages/${Date.now() + setUpdateProduct(imgUrl).name}`
+          `productImages/${Date.now() + updateProduct?.imgUrl?.name}`
         );
   
-        const uploadTask = uploadBytesResumable(storageRef, setUpdateProduct(imgUrl));
+        const uploadTask = uploadBytesResumable(storageRef, updateProduct?.imgUrl);
   
         uploadTask.on(
           () => {
@@ -42,13 +49,13 @@ const Modal = () => {
           },
           () => {
             getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-              await UpdateDoc(docRef, {
-                productName,
-                shortDesc,
-                description,
-                category,
-                price,
-                imgUrl: downloadURL,
+              await updateDoc(docRef, {
+                productName: updateProduct?.productName,
+                shortDesc: updateProduct?.shortDesc,
+                description: updateProduct?.description,
+                category: updateProduct?.category,
+                price: updateProduct?.price,
+                imgUrl: updateProduct?.downloadURL,
               });
             });
           }
@@ -72,14 +79,14 @@ const Modal = () => {
             ) : (
               <>
                 <h4 className="mb-5">Add Product</h4>
-                <Form onSubmit={updateProduct}>
+                <Form onSubmit={handleSubmit}>
                   <FormGroup className="form__group">
                     <span>Product title</span>
                     <input
                       type="text"
                       placeholder=""
-                      value={productName}
-                      onChange={(e) => setUpdateProduct(e.target.value)}
+                      value={updateProduct?.productName}
+                      onChange={(e) => handleChange(e)}
                       required
                     />
                   </FormGroup>
@@ -88,8 +95,8 @@ const Modal = () => {
                     <input
                       type="text"
                       placeholder=""
-                      value={shortDesc}
-                      onChange={(e) => setUpdateProduct(e.target.value)}
+                      value={updateProduct?.shortDesc}
+                      onChange={(e) => handleChange(e)}
                       required
                     />
                   </FormGroup>
@@ -98,8 +105,8 @@ const Modal = () => {
                     <input
                       type="text"
                       placeholder=""
-                      value={description}
-                      onChange={(e) => setUpdateProduct(e.target.value)}
+                      value={updateProduct?.description}
+                      onChange={(e) => handleChange(e)}
                       required
                     />
                   </FormGroup>
@@ -109,8 +116,8 @@ const Modal = () => {
                       <input
                         type="number"
                         placeholder="$"
-                        value={price}
-                        onChange={(e) => setUpdateProduct(Number(e.target.value))}
+                        value={updateProduct?.price}
+                        onChange={(e) => handleChange(Number(e))}
                         required
                       />
                     </FormGroup>
@@ -118,8 +125,8 @@ const Modal = () => {
                       <span>Category</span>
                       <select
                         className="w-100 p-2"
-                        value={category}
-                        onChange={(e) => setUpdateProduct(e.target.value)}
+                        value={updateProduct?.category}
+                        onChange={(e) => handleChange(e)}
                         required
                       >
                         <option value="">Select Category</option>
@@ -139,8 +146,8 @@ const Modal = () => {
                 <input
                   type="file"
                   placeholder=""
-                  value={imgUrl}
-                  onChange={(e) => setUpdateProduct(e.target.files[0])}
+                  value={updateProduct?.imgUrl}
+                  onChange={(e) => handleChange(e.target.files[0])}
                 />
               </FormGroup>
             </div>
@@ -149,9 +156,8 @@ const Modal = () => {
               whileTap={{ scale: 1.2 }}
               className="buy__btn"
               type="submit"
-              onClick={updateProduct}
             >
-              save
+              Submit
             </motion.button>
           </Col>
         </Row>

@@ -5,57 +5,60 @@ import "../pages/sytles/Shop.css";
 import { Container, Row, Col } from "reactstrap";
 import products from ".././assets/data/products";
 import ProductsLists from "../components/UI/ProductsList";
+import useGetData from "../firebase/useGetData";
 
 const Shop = () => {
-  const [productsData, setProductsData] = useState(products);
+  const [productData, setProductData] = useState();
+
+  const { data: productsData } = useGetData("products")
 
   const handleFilter = (e) => {
     const filterValue = e.target.value;
 
     if (filterValue === "chair") {
-      const filterProducts = products?.filter(
+      const filterProducts = productsData?.filter(
         (item) => item?.category === "chair"
       );
 
-      setProductsData(filterProducts);
+      setProductData(filterProducts);
     }
 
     if (filterValue === "sofa") {
-      const filterProducts = products?.filter(
+      const filterProducts = productsData?.filter(
         (item) => item?.category === "sofa"
       );
 
-      setProductsData(filterProducts);
+      setProductData(filterProducts);
     }
 
     if (filterValue === "chaise") {
-      const filterProducts = products?.filter(
+      const filterProducts = productsData?.filter(
         (item) => item?.category === "chaise"
       );
 
-      setProductsData(filterProducts);
+      setProductData(filterProducts);
     }
 
     if (filterValue === "outdoor") {
-      const filterProducts = products?.filter(
+      const filterProducts = productsData?.filter(
         (item) => item?.category === "outdoor"
       );
 
-      setProductsData(filterProducts);
+      setProductData(filterProducts);
     }
   };
 
   const handleSearch = (e) => {
     const searchTerm = e.target.value;
 
-    const searchedProducts = products?.filter((item) =>
+    const searchedProducts = productsData?.filter((item) =>
       item?.productName
         .toString()
         .toLowerCase()
         .includes(searchTerm.toLowerCase())
     );
 
-    setProductsData(searchedProducts);
+    setProductData(searchedProducts);
   };
   return (
     <>
@@ -104,7 +107,7 @@ const Shop = () => {
               {productsData?.length === 0 ? (
                 <h1 className="text-center fs-4">Not available!</h1>
               ) : (
-                <ProductsLists data={productsData} />
+                <ProductsLists data={productData} />
               )}
               <Col></Col>
             </Row>

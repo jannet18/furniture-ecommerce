@@ -4,30 +4,17 @@ import { motion } from "framer-motion";
 import { Container, Row, Col } from "reactstrap";
 import useGetData from "../firebase/useGetData";
 import { db } from "../firebase/config";
+import Modal from "./Modal";
 
 import { doc, deleteDoc } from "firebase/firestore";
-import { useState } from "react";
+
 
 const AllProducts = () => {
   const { data: productsData, loading } = useGetData("products");
   console.log(productsData);
-  const[updateProductName, setUpdateProductName] = useState("");
-  const[updateShortDesc, setUpdateShortDesc] = useState("");
-  const[updateProductDescription, setUpdateProductDescription] = useState("");
-  const[updateProductCategory, setUpdateProductCategory] = useState("");
-  const[updateProductPrice, setUpdateProductPrice] = useState("");
-  const[updateProductImgUrl, setUpdateProductImgUrl] = useState("");
-
+ 
   const updateProduct = async (id) => {
-    const productDoc = doc(db, "products", id);
-    await updateDoc(productDoc, {
-      productName: updateProductName,
-      shortDesc: updateShortDesc,
-      description: updateProductDescription,
-      category: updateProductCategory,
-      price:updateProductPrice,
-      imgUrl: updateProductImgUrl,
-    });
+    <Modal id={id} />
     toast.success("Updated successfully!");
   };
 
@@ -72,7 +59,7 @@ const AllProducts = () => {
                       <td>
                         <motion.button
                           whileTap={{ scale: 1.2 }}
-                          onClick={() => updateProduct(product.id)}
+                          onClick={updateProduct}
                           className="btn btn-outline-primary"
                         >
                           Update
